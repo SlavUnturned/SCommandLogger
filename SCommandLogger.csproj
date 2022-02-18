@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<LangVersion>preview</LangVersion>
+		<TargetFrameworks>net472</TargetFrameworks>
+		<AssemblyName>SCommandLogger</AssemblyName>
+		<RootNamespace>SCommandLogger</RootNamespace>
+		<NoWarn>$(NoWarn);CS0436</NoWarn>
+		<RunPostBuildEvent>Always</RunPostBuildEvent>
+		<Nullable>annotations</Nullable>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+		<CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)Generated</CompilerGeneratedFilesOutputPath>
+		<DebugType>full</DebugType>
+	</PropertyGroup>
+	<ItemGroup>
+	  <Compile Remove="Tests\**" />
+	  <EmbeddedResource Remove="Tests\**" />
+	  <None Remove="Tests\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Legacy2CPSWorkaround" Version="1.0.0">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Lib.Harmony" Version="2.2.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="7.0.1" />
+		<PackageReference Include="RocketMod.Modern.Dependencies" Version="1.*-*">
+			<IncludeAssets>compile</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="RocketMod.Modern.Generator" Version="1.*-*" />
+	</ItemGroup>
+</Project>
